@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC DIGITAL HUB — Results-Driven Digital Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070b14;
+    --surface: #0d1526;
+    --card: #111d35;
+    --accent: #00e5ff;
+    --gold: #f5c542;
+    --rose: #ff4d6d;
+    --text: #e8f0fe;
+    --muted: #7b93c1;
+    --border: rgba(0,229,255,0.12);
+    --glow: rgba(0,229,255,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  /* ─── NAV ─── */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), #0097b2);
+    color: #070b14;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,229,255,0.35);
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 18px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(7,11,20,0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background .3s;
+  }
+  .nav-logo {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content:''; position:absolute; bottom:-4px; left:0; right:0;
+    height:2px; background:var(--accent); border-radius:2px;
+    transform:scaleX(0); transition:transform .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { transform:scaleX(1); }
+  .nav-cta {
+    background: transparent;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--accent); color: #070b14; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:.3s; }
+  .mobile-menu { display:none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 6% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 70% 40%, rgba(0,229,255,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,197,66,0.05) 0%, transparent 60%),
+      var(--bg);
+  }
+  .grid-overlay {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position:relative; max-width: 680px; }
+  .hero-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .hero h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+    display:inline-block;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats {
+    display:flex; gap:40px; margin-top: 60px; flex-wrap:wrap;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform:uppercase; margin-top:4px; }
+  .hero-visual {
+    position:absolute; right:4%; top:50%; transform:translateY(-50%);
+    width: min(42%, 520px);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .orb {
+    width: 460px; height: 460px;
+    border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, rgba(0,229,255,0.15), rgba(245,197,66,0.05) 50%, transparent 70%);
+    border: 1px solid rgba(0,229,255,0.1);
+    display:flex; align-items:center; justify-content:center;
+    animation: float 6s ease-in-out infinite;
+    position:relative;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+  .orb-inner {
+    width:320px; height:320px; border-radius:50%;
+    border:1px solid rgba(0,229,255,0.15);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Clash Display',sans-serif; font-size:80px; font-weight:800;
+    background: radial-gradient(circle, rgba(0,229,255,0.05), transparent);
+    color:var(--accent);
+    text-shadow: 0 0 60px rgba(0,229,255,0.5);
+    letter-spacing:-4px;
+  }
+  .orb-badge {
+    position:absolute;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-family:'Clash Display',sans-serif;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .orb-badge.top { top:40px; right:20px; color:var(--gold); border-color:rgba(245,197,66,0.2); }
+  .orb-badge.bottom { bottom:60px; left:0; color:var(--accent); }
+  .orb-badge.mid { top:50%; right:-20px; color:var(--rose); border-color:rgba(255,77,109,0.2); }
+
+  /* ─── SECTIONS SHARED ─── */
+  section { padding: 100px 6%; }
+  .section-tag {
+    font-family:'Clash Display',sans-serif; font-size:11px; letter-spacing:3px;
+    color:var(--accent); text-transform:uppercase; font-weight:700;
+    margin-bottom:16px; display:block;
+  }
+  .section-title {
+    font-family:'Clash Display',sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight:800; line-height:1.1;
+    margin-bottom:16px;
+  }
+  .section-sub {
+    color:var(--muted); font-size:16px; max-width:520px;
+    margin-bottom:56px; font-weight:300;
+  }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--surface); }
+  .services-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:24px;
+  }
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+    position:relative; overflow:hidden;
+  }
+  .service-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    transform: scaleX(0); transition: transform .3s; transform-origin:left;
+  }
+  .service-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.25); }
+  .service-card:hover::before { transform:scaleX(1); }
+  .service-icon {
+    width:52px; height:52px; border-radius:12px;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid rgba(0,229,255,0.15);
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; margin-bottom:24px;
+  }
+  .service-card h3 {
+    font-family:'Clash Display',sans-serif; font-size:20px; font-weight:700;
+    margin-bottom:12px; color:var(--text);
+  }
+  .service-card p { color:var(--muted); font-size:14px; line-height:1.7; }
+  .service-link {
+    display:inline-flex; align-items:center; gap:6px;
+    color:var(--accent); font-size:13px; font-weight:600;
+    font-family:'Clash Display',sans-serif; text-decoration:none;
+    margin-top:20px; transition:gap .2s;
+  }
+  .service-link:hover { gap:10px; }
+
+  /* ─── WEBDEV CARD EXTRAS ─── */
+  .webdev-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(0,229,255,0.06) 0%, rgba(245,197,66,0.04) 100%);
+    border-color: rgba(0,229,255,0.25);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 32px;
+    align-items: start;
+  }
+  .webdev-card .webdev-top {
+    display: flex; align-items: center; gap: 14px;
+    grid-column: 1; grid-row: 1;
+  }
+  .webdev-card .service-icon { margin-bottom: 0; }
+  .webdev-card h3 { grid-column: 1; grid-row: 2; font-size: 26px; }
+  .webdev-card > p { grid-column: 1; grid-row: 3; }
+  .webdev-card .usecase-grid { grid-column: 1 / -1; grid-row: 4; }
+  .webdev-card .service-link { grid-column: 1; grid-row: 5; }
+  .new-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #e6a800);
+    color: #070b14;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .usecase-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 8px;
+  }
+  .usecase-tag {
+    background: rgba(0,229,255,0.07);
+    border: 1px solid rgba(0,229,255,0.18);
+    color: var(--text);
+    font-size: 13px;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 50px;
+    transition: background .2s, border-color .2s, color .2s;
+    cursor: default;
+  }
+  .usecase-tag:hover {
+    background: rgba(0,229,255,0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  @media (max-width: 700px) {
+    .webdev-card {
+      grid-template-columns: 1fr;
+    }
+    .webdev-card h3 { font-size: 20px; }
+  }
+
+  /* ─── WHY US ─── */
+  .why { background: var(--bg); }
+  .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .why-visual {
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  .why-metric {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius:16px; padding:28px;
+    text-align:center;
+    transition:transform .3s;
+  }
+  .why-metric:hover { transform:scale(1.03); }
+  .why-metric:nth-child(2) { margin-top:30px; }
+  .why-metric:nth-child(4) { margin-top:30px; }
+  .why-metric-num {
+    font-family:'Clash Display',sans-serif; font-size:36px; font-weight:800;
+    color:var(--accent); line-height:1;
+  }
+  .why-metric-num.gold { color:var(--gold); }
+  .why-metric-num.rose { color:var(--rose); }
+  .why-metric-num.green { color:#00e676; }
+  .why-metric p { font-size:12px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:1px; }
+  .why-points { display:flex; flex-direction:column; gap:24px; }
+  .why-point {
+    display:flex; gap:20px; align-items:flex-start;
+    padding:20px; border-radius:12px;
+    border:1px solid transparent;
+    transition:background .2s, border-color .2s;
+  }
+  .why-point:hover { background:var(--card); border-color:var(--border); }
+  .why-point-icon {
+    width:40px; height:40px; border-radius:10px;
+    background:rgba(0,229,255,0.08); display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0;
+  }
+  .why-point h4 { font-family:'Clash Display',sans-serif; font-size:16px; font-weight:700; margin-bottom:4px; }
+  .why-point p { font-size:14px; color:var(--muted); }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--surface); }
+  .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+  .testi-card {
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:32px; position:relative; overflow:hidden;
+    transition:transform .3s;
+  }
+  .testi-card:hover { transform:translateY(-4px); }
+  .testi-quote {
+    font-size:48px; color:var(--accent); opacity:.2;
+    font-family:'Clash Display',sans-serif; line-height:1;
+    margin-bottom:12px;
+  }
+  .testi-text { color:var(--muted); font-size:14px; line-height:1.8; margin-bottom:24px; font-style:italic; }
+  .testi-author { display:flex; align-items:center; gap:14px; }
+  .testi-avatar {
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(135deg, var(--accent), var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Clash Display',sans-serif; font-weight:800; font-size:16px; color:#070b14;
+  }
+  .testi-name { font-family:'Clash Display',sans-serif; font-weight:700; font-size:14px; }
+  .testi-role { font-size:12px; color:var(--muted); }
+  .stars { color:var(--gold); font-size:12px; margin-bottom:12px; }
+
+  /* ─── TRAINING ─── */
+  .training { background: var(--bg); }
+  .training-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+  .training-card {
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:32px; text-align:center; transition:transform .3s, box-shadow .3s;
+  }
+  .training-card:hover { transform:translateY(-6px); box-shadow:0 24px 64px rgba(0,229,255,0.07); }
+  .training-emoji { font-size:42px; margin-bottom:20px; }
+  .training-card h3 { font-family:'Clash Display',sans-serif; font-size:18px; font-weight:700; margin-bottom:10px; }
+  .training-card p { font-size:14px; color:var(--muted); margin-bottom:20px; }
+  .badge {
+    display:inline-block; background:rgba(245,197,66,0.1); border:1px solid rgba(245,197,66,0.2);
+    color:var(--gold); font-size:11px; padding:4px 12px; border-radius:50px;
+    font-family:'Clash Display',sans-serif; font-weight:600; letter-spacing:1px;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(245,197,66,0.04));
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    text-align:center; padding:100px 6%;
+  }
+  .cta-section h2 {
+    font-family:'Clash Display',sans-serif; font-size:clamp(28px,5vw,56px); font-weight:800;
+    margin-bottom:16px;
+  }
+  .cta-section p { color:var(--muted); font-size:16px; margin-bottom:40px; }
+  .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #040710; padding:60px 6% 30px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-top {
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px;
+    margin-bottom:48px;
+  }
+  .footer-brand p { color:var(--muted); font-size:14px; margin-top:12px; max-width:280px; line-height:1.7; }
+  .footer-logo { font-family:'Clash Display',sans-serif; font-size:20px; font-weight:800; }
+  .footer-logo span { color:var(--accent); }
+  .footer-col h4 { font-family:'Clash Display',sans-serif; font-size:14px; font-weight:700; margin-bottom:16px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-col ul a { color:var(--muted); text-decoration:none; font-size:14px; transition:color .2s; }
+  .footer-col ul a:hover { color:var(--accent); }
+  .footer-bottom {
+    border-top:1px solid var(--border); padding-top:24px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .footer-bottom p { color:var(--muted); font-size:13px; }
+  .social-links { display:flex; gap:12px; }
+  .social-btn {
+    width:36px; height:36px; border-radius:8px;
+    background:var(--card); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--muted); font-size:14px; text-decoration:none;
+    transition:background .2s, color .2s, border-color .2s;
+  }
+  .social-btn:hover { background:var(--accent); color:#070b14; border-color:var(--accent); }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal {
+    opacity:0; transform:translateY(30px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width:6px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:rgba(0,229,255,0.3); border-radius:3px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-visual { display:none; }
+    .why-grid { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 700px) {
+    .nav-links, .nav-cta { display:none; }
+    .hamburger { display:flex; }
+    .mobile-menu {
+      display:flex; flex-direction:column;
+      position:fixed; top:70px; left:0; right:0;
+      background: rgba(7,11,20,0.98);
+      backdrop-filter:blur(20px);
+      padding:24px 6%;
+      gap:20px;
+      border-bottom:1px solid var(--border);
+      transform:translateY(-120%); transition:transform .3s;
+      z-index:999;
+    }
+    .mobile-menu.open { transform:translateY(0); }
+    .mobile-menu a {
+      color:var(--text); text-decoration:none;
+      font-family:'Clash Display',sans-serif; font-size:18px; font-weight:700;
+    }
+    .footer-top { grid-template-columns:1fr; }
+    .hero-stats { gap:24px; }
+    section { padding:70px 5%; }
+    .why-visual { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo">WC<span>.</span>DIGITAL HUB</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Started</a>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Why Us</a>
+  <a href="#training" onclick="toggleMenu()">Training</a>
+  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-content reveal">
+    <div class="hero-tag">Nigeria's #1 Digital Agency</div>
+    <h1>Build, Scale &amp;<br><span class="highlight">Dominate Online</span></h1>
+    <p>WC Digital Hub combines Web Development & Digital Marketing (Meta Ads, Google Ads) Services and Training to drive real results.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#training" class="btn-outline">Start Training</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">₦500K+</div>
+        <div class="stat-label">Ad Revenue Managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="orb">
+      <div class="orb-inner">WC</div>
+      <div class="orb-badge top">⚡ Meta Ads Active</div>
+      <div class="orb-badge bottom">📈 ROI +340%</div>
+      <div class="orb-badge mid">🔥 Forex Live</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <span class="section-tag reveal">WHAT WE DO</span>
+  <h2 class="section-title reveal">Tailored Digital<br>Marketing Solutions</h2>
+  <p class="section-sub reveal">Our services are designed to meet your specific needs and help you achieve your business goals.</p>
+  <div class="services-grid">
+    <div class="service-card webdev-card reveal">
+      <div class="webdev-top">
+        <div class="service-icon">🌐</div>
+        <span class="new-badge">⭐ #1 Service</span>
+      </div>
+      <h3>Web Development</h3>
+      <p>We design stunning, fast, and fully responsive websites that represent your brand professionally and convert visitors into customers. Every site is custom-built for your unique goals.</p>
+      <div class="usecase-grid">
+        <span class="usecase-tag">👤 Personal Portfolio</span>
+        <span class="usecase-tag">🏫 School Website</span>
+        <span class="usecase-tag">🛒 E-Commerce</span>
+        <span class="usecase-tag">⛪ Church</span>
+        <span class="usecase-tag">🏢 Business</span>
+        <span class="usecase-tag">🔄 Buy &amp; Sell</span>
+        <span class="usecase-tag">✨ &amp; Lots More</span>
+      </div>
+      <a href="#contact" class="service-link">Build My Website →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📣</div>
+      <h3>Meta Ads Management</h3>
+      <p>Leverage the power of Facebook & Instagram Ads to reach your exact target audience. Compelling campaigns that maximize engagement, leads, and conversions.</p>
+      <a href="#contact" class="service-link">Get Started →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔍</div>
+      <h3>Google Ads Expertise</h3>
+      <p>Data-driven Google Ads campaigns that boost traffic and generate quality leads. We maximize your ROI through continuous optimization and smart bidding.</p>
+      <a href="#contact" class="service-link">Learn More →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <h3>Forex Trading Guidance</h3>
+      <p>Expert forex mentorship and strategy sessions. Learn to analyze the markets, manage risk, and trade with confidence in the global financial market.</p>
+      <a href="#contact" class="service-link">Explore →</a>
+    </div>
+   
+    <div class="service-card reveal">
+      <div class="service-icon">🎓</div>
+      <h3>Digital Marketing Training</h3>
+      <p>Practical, income-generating skills taught by industry experts. From beginner to advanced — learn SEO, content strategy, social media marketing and more.</p>
+      <a href="#training" class="service-link">Enroll Now →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📈</div>
+      <h3>Performance Tracking</h3>
+      <p>Real-time analytics and detailed campaign reports. We continuously refine your strategy based on data-driven insights to maximize every naira spent.</p>
+      <a href="#contact" class="service-link">See Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="why" id="why">
+  <div class="why-grid">
+    <div class="why-visual reveal">
+      <div class="why-metric">
+        <div class="why-metric-num">500+</div>
+        <p>Clients Served</p>
+      </div>
+      <div class="why-metric">
+        <div class="why-metric-num gold">340%</div>
+        <p>Avg. ROI Increase</p>
+      </div>
+      <div class="why-metric">
+        <div class="why-metric-num rose">₦200M+</div>
+        <p>Ad Spend Managed</p>
+      </div>
+      <div class="why-metric">
+        <div class="why-metric-num green">98%</div>
+        <p>Client Retention</p>
+      </div>
+    </div>
+    <div>
+      <span class="section-tag reveal">Why Choose Us</span>
+      <h2 class="section-title reveal">Your Trusted<br>Digital Partner</h2>
+      <p class="section-sub reveal" style="margin-bottom:36px">We combine strategy, innovation, and real-world experience to help brands and individuals achieve financial and digital growth.</p>
+      <div class="why-points">
+        <div class="why-point reveal">
+          <div class="why-point-icon">🎯</div>
+          <div>
+            <h4>Proven Track Record</h4>
+            <p>Hundreds of businesses have grown significantly through our tailored marketing strategies and campaigns.</p>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-point-icon">👥</div>
+          <div>
+            <h4>Expert Team</h4>
+            <p>Seasoned professionals with deep experience in digital marketing, forex, and financial services.</p>
+          </div>
+        </div>
+        <div class="why-point reveal">
+          <div class="why-point-icon">🤝</div>
+          <div>
+            <h4>Client-Centric Approach</h4>
+            <p>We work closely with you to develop customized solutions aligned with your objectives and vision.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRAINING ─── -->
+<section class="training" id="training">
+  <span class="section-tag reveal">SKILL DEVELOPMENT</span>
+  <h2 class="section-title reveal">Master Digital<br>Marketing</h2>
+  <p class="section-sub reveal">Practical, income-generating skills taught by industry experts. Enroll today and unlock your potential in the digital economy.</p>
+  <div class="training-grid">
+    <div class="training-card reveal">
+      <div class="training-emoji">📱</div>
+      
+   
+    <div class="training-card reveal">
+      <div class="training-emoji">✍️</div>
+      <h3>Content Marketing</h3>
+      <p>Develop a powerful content strategy, harness storytelling, and measure campaign effectiveness to drive engagement and lead generation.</p>
+      <span class="badge">Intermediate</span>
+    </div>
+      
+    <div class="training-card reveal">
+      <div class="training-emoji">💰</div>
+      <h3>Forex Basics</h3>
+      <p>Navigate the global financial markets with confidence. Learn technical analysis, risk management, and smart trading habits.</p>
+      <span class="badge">Beginner Friendly</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials" id="testimonials">
+  <span class="section-tag reveal">Client Stories</span>
+  <h2 class="section-title reveal">What Our Clients Say</h2>
+  <p class="section-sub reveal">Real results from real people who trusted WilsonChannel Digital Hub.</p>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">WC Digital Hub transformed our online presence. Their expertise in Meta Ads significantly increased our engagement and sales!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AT</div>
+        <div>
+          <div class="testi-name">Alex T.</div>
+          <div class="testi-role">E-commerce Entrepreneur</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The training programs offered by WilsonChannel were invaluable. I gained practical skills that have helped me excel in my career as a digital marketer.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--rose),var(--gold))">SL</div>
+        <div>
+          <div class="testi-name">Sarah L.</div>
+          <div class="testi-role">Digital Marketing Specialist</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Thanks to their guidance in Forex trading, I now feel confident navigating the financial market and making informed, profitable decisions.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#00e676,var(--accent))">MP</div>
+        <div>
+          <div class="testi-name">Mark P.</div>
+          <div class="testi-role">Forex Trader</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <h2 class="reveal">Ready to <span style="background:linear-gradient(90deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Grow Your Business?</span></h2>
+  <p class="reveal">Let's build your digital success story together. Book a free consultation today.</p>
+  <div class="cta-btns reveal">
+    <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-primary">Book Free Consultation</a>
+    <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-outline">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">WC<span>.</span>Digital Hub</div>
+      <p>A results-driven digital marketing agency dedicated to helping businesses grow, scale, and dominate online.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Web Development</a></li>
+        <li><a href="#services">Meta Ads</a></li>
+        <li><a href="#services">Forex Guidance</a></li>
+        <li><a href="#services">Crypto Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Training</h4>
+      <ul>
+        <li><a href="#training">Digital Marketing</a></li>
+        <li><a href="#training">Web Development</a></li>
+        <li><a href="#training">Content Marketing</a></li>
+        <li><a href="#training">Forex Basics</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 WILSONCHANNEL. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://youtube.com/@wilsonchanneltv?si=xHbO-v2iRdMzfT5S" class="social-btn" title="Youtube">f</a>
+      <a href="https://www.instagram.com/wilsonchanneltv?igsh=MTZ3bXJjcTNkdHV2aw==" class="social-btn" title="Instagram">ig</a>
+      <a href="https://x.com/wilsonchanneltv" class="social-btn" title="Twitter/X">𝕏</a>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="social-btn" title="WhatsApp">W</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─ HAMBURGER MENU ─
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  // ─ SCROLL REVEAL ─
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─ STAGGERED CARDS ─
+  document.querySelectorAll('.services-grid .service-card, .testi-grid .testi-card, .training-grid .training-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 80}ms`;
+  });
+</script>
+</body>
+</html>
