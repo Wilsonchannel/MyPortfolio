@@ -3,851 +3,586 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WC DIGITAL HUB — Results-Driven Digital Marketing</title>
-<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+<title>WC DIGITAL HUB — Web Design & Development Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #070b14;
-    --surface: #0d1526;
-    --card: #111d35;
-    --accent: #00e5ff;
-    --gold: #f5c542;
-    --rose: #ff4d6d;
-    --text: #e8f0fe;
-    --muted: #7b93c1;
-    --border: rgba(0,229,255,0.12);
-    --glow: rgba(0,229,255,0.18);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    line-height: 1.65;
-  }
-
-  /* ─── NAV ─── */
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #0097b2);
-    color: #070b14;
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 14px 36px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0,229,255,0.35);
-  }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 1000;
-    padding: 18px 6%;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(7,11,20,0.7);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: background .3s;
-  }
-  .nav-logo {
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    color: var(--text);
-  }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color .2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content:''; position:absolute; bottom:-4px; left:0; right:0;
-    height:2px; background:var(--accent); border-radius:2px;
-    transform:scaleX(0); transition:transform .2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a:hover::after { transform:scaleX(1); }
-  .nav-cta {
-    background: transparent;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    padding: 10px 24px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background .2s, color .2s;
-    text-decoration: none;
-  }
-  .nav-cta:hover { background: var(--accent); color: #070b14; }
-  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-  .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:.3s; }
-  .mobile-menu { display:none; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 120px 6% 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 60% at 70% 40%, rgba(0,229,255,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,197,66,0.05) 0%, transparent 60%),
-      var(--bg);
-  }
-  .grid-overlay {
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(0,229,255,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,0.035) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-content { position:relative; max-width: 680px; }
-  .hero-tag {
-    display:inline-flex; align-items:center; gap:8px;
-    background: rgba(0,229,255,0.08);
-    border: 1px solid rgba(0,229,255,0.2);
-    border-radius: 50px;
-    padding: 6px 16px;
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 600;
-    margin-bottom: 28px;
-  }
-  .hero-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:blink 1.5s infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  .hero h1 {
-    font-family: 'Clash Display', sans-serif;
-    font-size: clamp(40px, 7vw, 76px);
-    font-weight: 800;
-    line-height: 1.05;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
-  }
-  .hero h1 .highlight {
-    background: linear-gradient(90deg, var(--accent), var(--gold));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .hero p {
-    font-size: 17px;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 40px;
-    font-weight: 300;
-  }
-  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
-  .btn-outline {
-    background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    color: var(--text);
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 14px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color .2s, color .2s;
-    display:inline-block;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-  .hero-stats {
-    display:flex; gap:40px; margin-top: 60px; flex-wrap:wrap;
-  }
-  .stat-item {}
-  .stat-num {
-    font-family: 'Clash Display', sans-serif;
-    font-size: 34px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform:uppercase; margin-top:4px; }
-  .hero-visual {
-    position:absolute; right:4%; top:50%; transform:translateY(-50%);
-    width: min(42%, 520px);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .orb {
-    width: 460px; height: 460px;
-    border-radius:50%;
-    background: radial-gradient(circle at 30% 30%, rgba(0,229,255,0.15), rgba(245,197,66,0.05) 50%, transparent 70%);
-    border: 1px solid rgba(0,229,255,0.1);
-    display:flex; align-items:center; justify-content:center;
-    animation: float 6s ease-in-out infinite;
-    position:relative;
-  }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
-  .orb-inner {
-    width:320px; height:320px; border-radius:50%;
-    border:1px solid rgba(0,229,255,0.15);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Clash Display',sans-serif; font-size:80px; font-weight:800;
-    background: radial-gradient(circle, rgba(0,229,255,0.05), transparent);
-    color:var(--accent);
-    text-shadow: 0 0 60px rgba(0,229,255,0.5);
-    letter-spacing:-4px;
-  }
-  .orb-badge {
-    position:absolute;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 10px 16px;
-    font-size: 12px;
-    font-family:'Clash Display',sans-serif;
-    font-weight:600;
-    white-space:nowrap;
-  }
-  .orb-badge.top { top:40px; right:20px; color:var(--gold); border-color:rgba(245,197,66,0.2); }
-  .orb-badge.bottom { bottom:60px; left:0; color:var(--accent); }
-  .orb-badge.mid { top:50%; right:-20px; color:var(--rose); border-color:rgba(255,77,109,0.2); }
-
-  /* ─── SECTIONS SHARED ─── */
-  section { padding: 100px 6%; }
-  .section-tag {
-    font-family:'Clash Display',sans-serif; font-size:11px; letter-spacing:3px;
-    color:var(--accent); text-transform:uppercase; font-weight:700;
-    margin-bottom:16px; display:block;
-  }
-  .section-title {
-    font-family:'Clash Display',sans-serif;
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight:800; line-height:1.1;
-    margin-bottom:16px;
-  }
-  .section-sub {
-    color:var(--muted); font-size:16px; max-width:520px;
-    margin-bottom:56px; font-weight:300;
-  }
-
-  /* ─── SERVICES ─── */
-  .services { background: var(--surface); }
-  .services-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap:24px;
-  }
-  .service-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px 32px;
-    transition: transform .3s, box-shadow .3s, border-color .3s;
-    position:relative; overflow:hidden;
-  }
-  .service-card::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:2px;
-    background: linear-gradient(90deg, var(--accent), var(--gold));
-    transform: scaleX(0); transition: transform .3s; transform-origin:left;
-  }
-  .service-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,229,255,0.08); border-color:rgba(0,229,255,0.25); }
-  .service-card:hover::before { transform:scaleX(1); }
-  .service-icon {
-    width:52px; height:52px; border-radius:12px;
-    background: rgba(0,229,255,0.08);
-    border: 1px solid rgba(0,229,255,0.15);
-    display:flex; align-items:center; justify-content:center;
-    font-size:22px; margin-bottom:24px;
-  }
-  .service-card h3 {
-    font-family:'Clash Display',sans-serif; font-size:20px; font-weight:700;
-    margin-bottom:12px; color:var(--text);
-  }
-  .service-card p { color:var(--muted); font-size:14px; line-height:1.7; }
-  .service-link {
-    display:inline-flex; align-items:center; gap:6px;
-    color:var(--accent); font-size:13px; font-weight:600;
-    font-family:'Clash Display',sans-serif; text-decoration:none;
-    margin-top:20px; transition:gap .2s;
-  }
-  .service-link:hover { gap:10px; }
-
-  /* ─── WEBDEV CARD EXTRAS ─── */
-  .webdev-card {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(0,229,255,0.06) 0%, rgba(245,197,66,0.04) 100%);
-    border-color: rgba(0,229,255,0.25);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto auto auto;
-    column-gap: 32px;
-    align-items: start;
-  }
-  .webdev-card .webdev-top {
-    display: flex; align-items: center; gap: 14px;
-    grid-column: 1; grid-row: 1;
-  }
-  .webdev-card .service-icon { margin-bottom: 0; }
-  .webdev-card h3 { grid-column: 1; grid-row: 2; font-size: 26px; }
-  .webdev-card > p { grid-column: 1; grid-row: 3; }
-  .webdev-card .usecase-grid { grid-column: 1 / -1; grid-row: 4; }
-  .webdev-card .service-link { grid-column: 1; grid-row: 5; }
-  .new-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--gold), #e6a800);
-    color: #070b14;
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 1px;
-    padding: 5px 14px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .usecase-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0 8px;
-  }
-  .usecase-tag {
-    background: rgba(0,229,255,0.07);
-    border: 1px solid rgba(0,229,255,0.18);
-    color: var(--text);
-    font-size: 13px;
-    font-family: 'Clash Display', sans-serif;
-    font-weight: 600;
-    padding: 7px 16px;
-    border-radius: 50px;
-    transition: background .2s, border-color .2s, color .2s;
-    cursor: default;
-  }
-  .usecase-tag:hover {
-    background: rgba(0,229,255,0.15);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  @media (max-width: 700px) {
-    .webdev-card {
-      grid-template-columns: 1fr;
-    }
-    .webdev-card h3 { font-size: 20px; }
-  }
-
-  /* ─── WHY US ─── */
-  .why { background: var(--bg); }
-  .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-  .why-visual {
-    display:grid; grid-template-columns:1fr 1fr; gap:16px;
-  }
-  .why-metric {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius:16px; padding:28px;
-    text-align:center;
-    transition:transform .3s;
-  }
-  .why-metric:hover { transform:scale(1.03); }
-  .why-metric:nth-child(2) { margin-top:30px; }
-  .why-metric:nth-child(4) { margin-top:30px; }
-  .why-metric-num {
-    font-family:'Clash Display',sans-serif; font-size:36px; font-weight:800;
-    color:var(--accent); line-height:1;
-  }
-  .why-metric-num.gold { color:var(--gold); }
-  .why-metric-num.rose { color:var(--rose); }
-  .why-metric-num.green { color:#00e676; }
-  .why-metric p { font-size:12px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:1px; }
-  .why-points { display:flex; flex-direction:column; gap:24px; }
-  .why-point {
-    display:flex; gap:20px; align-items:flex-start;
-    padding:20px; border-radius:12px;
-    border:1px solid transparent;
-    transition:background .2s, border-color .2s;
-  }
-  .why-point:hover { background:var(--card); border-color:var(--border); }
-  .why-point-icon {
-    width:40px; height:40px; border-radius:10px;
-    background:rgba(0,229,255,0.08); display:flex; align-items:center; justify-content:center;
-    font-size:18px; flex-shrink:0;
-  }
-  .why-point h4 { font-family:'Clash Display',sans-serif; font-size:16px; font-weight:700; margin-bottom:4px; }
-  .why-point p { font-size:14px; color:var(--muted); }
-
-  /* ─── TESTIMONIALS ─── */
-  .testimonials { background: var(--surface); }
-  .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
-  .testi-card {
-    background:var(--card); border:1px solid var(--border); border-radius:16px;
-    padding:32px; position:relative; overflow:hidden;
-    transition:transform .3s;
-  }
-  .testi-card:hover { transform:translateY(-4px); }
-  .testi-quote {
-    font-size:48px; color:var(--accent); opacity:.2;
-    font-family:'Clash Display',sans-serif; line-height:1;
-    margin-bottom:12px;
-  }
-  .testi-text { color:var(--muted); font-size:14px; line-height:1.8; margin-bottom:24px; font-style:italic; }
-  .testi-author { display:flex; align-items:center; gap:14px; }
-  .testi-avatar {
-    width:42px; height:42px; border-radius:50%;
-    background:linear-gradient(135deg, var(--accent), var(--gold));
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Clash Display',sans-serif; font-weight:800; font-size:16px; color:#070b14;
-  }
-  .testi-name { font-family:'Clash Display',sans-serif; font-weight:700; font-size:14px; }
-  .testi-role { font-size:12px; color:var(--muted); }
-  .stars { color:var(--gold); font-size:12px; margin-bottom:12px; }
-
-  /* ─── TRAINING ─── */
-  .training { background: var(--bg); }
-  .training-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
-  .training-card {
-    background:var(--card); border:1px solid var(--border); border-radius:16px;
-    padding:32px; text-align:center; transition:transform .3s, box-shadow .3s;
-  }
-  .training-card:hover { transform:translateY(-6px); box-shadow:0 24px 64px rgba(0,229,255,0.07); }
-  .training-emoji { font-size:42px; margin-bottom:20px; }
-  .training-card h3 { font-family:'Clash Display',sans-serif; font-size:18px; font-weight:700; margin-bottom:10px; }
-  .training-card p { font-size:14px; color:var(--muted); margin-bottom:20px; }
-  .badge {
-    display:inline-block; background:rgba(245,197,66,0.1); border:1px solid rgba(245,197,66,0.2);
-    color:var(--gold); font-size:11px; padding:4px 12px; border-radius:50px;
-    font-family:'Clash Display',sans-serif; font-weight:600; letter-spacing:1px;
-  }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    background: linear-gradient(135deg, rgba(0,229,255,0.06), rgba(245,197,66,0.04));
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    text-align:center; padding:100px 6%;
-  }
-  .cta-section h2 {
-    font-family:'Clash Display',sans-serif; font-size:clamp(28px,5vw,56px); font-weight:800;
-    margin-bottom:16px;
-  }
-  .cta-section p { color:var(--muted); font-size:16px; margin-bottom:40px; }
-  .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: #040710; padding:60px 6% 30px;
-    border-top: 1px solid var(--border);
-  }
-  .footer-top {
-    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px;
-    margin-bottom:48px;
-  }
-  .footer-brand p { color:var(--muted); font-size:14px; margin-top:12px; max-width:280px; line-height:1.7; }
-  .footer-logo { font-family:'Clash Display',sans-serif; font-size:20px; font-weight:800; }
-  .footer-logo span { color:var(--accent); }
-  .footer-col h4 { font-family:'Clash Display',sans-serif; font-size:14px; font-weight:700; margin-bottom:16px; }
-  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-  .footer-col ul a { color:var(--muted); text-decoration:none; font-size:14px; transition:color .2s; }
-  .footer-col ul a:hover { color:var(--accent); }
-  .footer-bottom {
-    border-top:1px solid var(--border); padding-top:24px;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-  }
-  .footer-bottom p { color:var(--muted); font-size:13px; }
-  .social-links { display:flex; gap:12px; }
-  .social-btn {
-    width:36px; height:36px; border-radius:8px;
-    background:var(--card); border:1px solid var(--border);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--muted); font-size:14px; text-decoration:none;
-    transition:background .2s, color .2s, border-color .2s;
-  }
-  .social-btn:hover { background:var(--accent); color:#070b14; border-color:var(--accent); }
-
-  /* ─── ANIMATIONS ─── */
-  .reveal {
-    opacity:0; transform:translateY(30px);
-    transition:opacity .7s ease, transform .7s ease;
-  }
-  .reveal.visible { opacity:1; transform:translateY(0); }
-
-  /* ─── SCROLLBAR ─── */
-  ::-webkit-scrollbar { width:6px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:rgba(0,229,255,0.3); border-radius:3px; }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 1024px) {
-    .hero-visual { display:none; }
-    .why-grid { grid-template-columns:1fr; }
-    .footer-top { grid-template-columns:1fr 1fr; }
-  }
-  @media (max-width: 700px) {
-    .nav-links, .nav-cta { display:none; }
-    .hamburger { display:flex; }
-    .mobile-menu {
-      display:flex; flex-direction:column;
-      position:fixed; top:70px; left:0; right:0;
-      background: rgba(7,11,20,0.98);
-      backdrop-filter:blur(20px);
-      padding:24px 6%;
-      gap:20px;
-      border-bottom:1px solid var(--border);
-      transform:translateY(-120%); transition:transform .3s;
-      z-index:999;
-    }
-    .mobile-menu.open { transform:translateY(0); }
-    .mobile-menu a {
-      color:var(--text); text-decoration:none;
-      font-family:'Clash Display',sans-serif; font-size:18px; font-weight:700;
-    }
-    .footer-top { grid-template-columns:1fr; }
-    .hero-stats { gap:24px; }
-    section { padding:70px 5%; }
-    .why-visual { grid-template-columns:1fr 1fr; }
-  }
+:root{--bg:#06080f;--surface:#0b0f1c;--card:#0f1628;--card2:#131a2e;--accent:#4fffb0;--accent2:#00cfff;--gold:#ffd166;--rose:#ff6b6b;--text:#f0f4ff;--muted:#6b80ab;--border:rgba(79,255,176,0.1);--border2:rgba(255,255,255,0.07);--glow:rgba(79,255,176,0.15);--radius:18px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
+h1,h2,h3,h4,h5{font-family:'Bricolage Grotesque',sans-serif}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(79,255,176,0.25);border-radius:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(6,8,15,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2)}
+.nav-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:var(--text);display:flex;align-items:center;gap:4px;text-decoration:none}
+.nav-logo .dot{color:var(--accent);font-size:28px;line-height:1;margin-top:-4px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.btn-nav{background:var(--accent);color:#06080f;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;padding:10px 22px;border-radius:50px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-nav:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,255,176,0.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;flex-direction:column;position:fixed;top:65px;left:0;right:0;background:rgba(6,8,15,0.98);backdrop-filter:blur(24px);padding:28px 5%;gap:22px;border-bottom:1px solid var(--border2);transform:translateY(-120%);transition:transform .3s;z-index:999}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{color:var(--text);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#06080f;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;padding:14px 30px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(79,255,176,0.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:14px;padding:13px 28px;border-radius:50px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.18);transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero{min-height:100vh;padding:130px 5% 90px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.hero-noise{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(79,255,176,0.06) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 15% 70%,rgba(0,207,255,0.05) 0%,transparent 60%),var(--bg)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(79,255,176,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(79,255,176,0.03) 1px,transparent 1px);background-size:50px 50px}
+.hero-left{position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(79,255,176,0.08);border:1px solid rgba(79,255,176,0.2);border-radius:50px;padding:6px 16px;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse-dot 1.5s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero h1{font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin-bottom:22px}
+.hero h1 .line2{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-desc{font-size:16px;color:var(--muted);max-width:480px;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.stat{border-left:2px solid var(--accent);padding-left:16px}
+.stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:30px;font-weight:800;color:var(--text);line-height:1}
+.stat-l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.hero-right{position:relative;z-index:1}
+.browser-mock{background:var(--card);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(79,255,176,0.05);animation:float-hero 5s ease-in-out infinite}
+@keyframes float-hero{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.browser-bar{background:#0d1321;padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border2)}
+.browser-dots{display:flex;gap:6px}
+.browser-dots span{width:10px;height:10px;border-radius:50%}
+.browser-dots span:nth-child(1){background:var(--rose)}
+.browser-dots span:nth-child(2){background:var(--gold)}
+.browser-dots span:nth-child(3){background:var(--accent)}
+.browser-url{flex:1;background:#0a0e1a;border-radius:6px;padding:5px 12px;font-size:11px;color:var(--muted)}
+.browser-body{padding:20px}
+.site-preview{display:flex;flex-direction:column;gap:10px}
+.preview-nav{height:28px;background:#131a2e;border-radius:6px;display:flex;align-items:center;gap:8px;padding:0 10px}
+.preview-nav-dot{width:28px;height:6px;border-radius:3px;background:var(--accent);opacity:.7}
+.preview-nav-dot:nth-child(2),.preview-nav-dot:nth-child(3){background:var(--muted);opacity:.3;width:22px}
+.preview-hero-block{height:100px;background:linear-gradient(135deg,#0f1628,#131a2e);border-radius:10px;position:relative;overflow:hidden;padding:14px;display:flex;flex-direction:column;justify-content:flex-end}
+.preview-hero-block::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 20%,rgba(79,255,176,0.12),transparent 60%)}
+.ph-title{width:60%;height:8px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;margin-bottom:5px}
+.ph-sub{width:40%;height:5px;background:rgba(255,255,255,0.15);border-radius:3px;margin-bottom:8px}
+.ph-btn{width:70px;height:18px;background:var(--accent);border-radius:9px}
+.preview-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.preview-card{background:#131a2e;border-radius:8px;padding:8px}
+.pc-img{height:36px;background:linear-gradient(135deg,rgba(79,255,176,0.15),rgba(0,207,255,0.1));border-radius:5px;margin-bottom:5px}
+.pc-line{height:4px;background:rgba(255,255,255,0.12);border-radius:2px;margin-bottom:3px}
+.pc-line.short{width:60%}
+.preview-footer{height:18px;background:#0a0e1a;border-radius:5px}
+.hero-badge{position:absolute;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:12px;font-weight:600;font-family:'Bricolage Grotesque',sans-serif;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.hero-badge.b1{top:-16px;right:20px;color:var(--accent);border-color:rgba(79,255,176,0.2);animation:fb1 4s ease-in-out infinite}
+.hero-badge.b2{bottom:20px;left:-20px;color:var(--gold);border-color:rgba(255,209,102,0.2);animation:fb2 5s ease-in-out infinite}
+.hero-badge.b3{top:40%;right:-24px;color:var(--accent2);border-color:rgba(0,207,255,0.2);animation:fb1 6s ease-in-out infinite reverse}
+@keyframes fb1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fb2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+section{padding:96px 5%}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-family:'Bricolage Grotesque',sans-serif}
+.sec-title{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:14px}
+.sec-sub{color:var(--muted);font-size:15px;max-width:500px;margin-bottom:56px}
+.marquee-strip{background:var(--accent);padding:14px 0;overflow:hidden;display:flex;align-items:center}
+.marquee-track{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
+.marquee-item{display:inline-flex;align-items:center;gap:12px;padding:0 28px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#06080f}
+.marquee-item::after{content:'✦';font-size:10px;color:rgba(6,8,15,0.4)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.what{background:var(--surface)}
+.what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.what-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.what-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.3);border-color:rgba(79,255,176,0.18)}
+.card-num{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);opacity:.5;margin-bottom:20px}
+.card-icon{font-size:32px;margin-bottom:16px}
+.what-card h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.what-card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.card-tags{display:flex;flex-wrap:wrap;gap:7px}
+.ctag{background:rgba(79,255,176,0.07);border:1px solid rgba(79,255,176,0.15);color:var(--text);font-size:11px;font-weight:600;font-family:'Bricolage Grotesque',sans-serif;padding:4px 12px;border-radius:50px;transition:background .2s,border-color .2s,color .2s}
+.ctag:hover{background:rgba(79,255,176,0.15);border-color:var(--accent);color:var(--accent)}
+.what-card.featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(79,255,176,0.05) 0%,rgba(0,207,255,0.04) 100%);border-color:rgba(79,255,176,0.2);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.featured-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06080f;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:11px;letter-spacing:1px;padding:5px 14px;border-radius:50px;text-transform:uppercase;margin-bottom:8px}
+.featured-right{display:flex;flex-direction:column;gap:10px;justify-content:center;padding-top:8px}
+.use-case-list{display:flex;flex-wrap:wrap;gap:8px}
+.use-tag{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);color:var(--text);font-size:12px;font-weight:500;padding:7px 14px;border-radius:10px;transition:background .2s,border-color .2s}
+.use-tag:hover{background:rgba(79,255,176,0.08);border-color:rgba(79,255,176,0.2)}
+.service-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;font-family:'Bricolage Grotesque',sans-serif;text-decoration:none;margin-top:18px;transition:gap .2s}
+.service-link:hover{gap:10px}
+.process{background:var(--bg)}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;position:relative}
+.process-steps::before{content:'';position:absolute;top:32px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(79,255,176,0.2) 20%,rgba(79,255,176,0.2) 80%,transparent)}
+.step-num{width:64px;height:64px;border-radius:16px;background:var(--card);border:1px solid rgba(79,255,176,0.2);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--accent);margin-bottom:24px;position:relative;z-index:1}
+.step h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.step p{font-size:13px;color:var(--muted);line-height:1.6}
+.pricing{background:var(--surface)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.plan-card{background:var(--card);border:1px solid var(--border2);border-radius:22px;padding:36px 30px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.plan-card:hover{transform:translateY(-6px)}
+.plan-card.popular{border-color:rgba(79,255,176,0.35);background:linear-gradient(160deg,rgba(79,255,176,0.05),var(--card) 50%);box-shadow:0 0 0 1px rgba(79,255,176,0.15),0 30px 70px rgba(0,0,0,0.3)}
+.popular-tag{position:absolute;top:22px;right:22px;background:var(--accent);color:#06080f;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:50px}
+.plan-tier{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.plan-name{font-size:24px;font-weight:800;margin-bottom:6px}
+.plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:42px;font-weight:800;color:var(--accent);line-height:1;margin:16px 0 4px}
+.plan-price span{font-size:18px;color:var(--muted);vertical-align:top;margin-top:8px;display:inline-block}
+.plan-note{font-size:12px;color:var(--muted);margin-bottom:24px}
+.plan-divider{height:1px;background:var(--border2);margin-bottom:24px}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted)}
+.plan-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-features li strong{color:var(--text)}
+.plan-domains{background:rgba(79,255,176,0.05);border:1px solid rgba(79,255,176,0.1);border-radius:10px;padding:12px 14px;margin-bottom:24px}
+.plan-domains p{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.domain-tags{display:flex;flex-wrap:wrap;gap:5px}
+.dtag{background:rgba(79,255,176,0.08);border:1px solid rgba(79,255,176,0.15);color:var(--text);font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;font-family:monospace}
+.btn-plan{display:block;text-align:center;text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;padding:14px;border-radius:12px;transition:all .2s}
+.btn-plan.outline{border:1.5px solid rgba(79,255,176,0.3);color:var(--accent)}
+.btn-plan.outline:hover{background:rgba(79,255,176,0.08)}
+.btn-plan.solid{background:var(--accent);color:#06080f}
+.btn-plan.solid:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,255,176,0.3)}
+.ads{background:var(--bg)}
+.ads-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ad-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:36px 32px;transition:transform .3s,border-color .3s}
+.ad-card:hover{transform:translateY(-4px);border-color:rgba(79,255,176,0.2)}
+.ad-platform{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ad-logo{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.ad-logo.fb{background:linear-gradient(135deg,#1877f2,#0a5eb2)}
+.ad-logo.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.ad-platform h3{font-size:20px;font-weight:700}
+.ad-platform p{font-size:12px;color:var(--muted)}
+.ad-card>p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.ad-features{display:flex;flex-direction:column;gap:10px}
+.ad-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.ad-feat::before{content:'→';color:var(--accent);font-weight:700}
+.testimonials{background:var(--surface)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testi-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:30px 26px;transition:transform .3s}
+.testi-card:hover{transform:translateY(-4px)}
+.stars{color:var(--gold);font-size:13px;margin-bottom:14px;letter-spacing:2px}
+.testi-text{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;color:#06080f;flex-shrink:0}
+.t-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px}
+.t-role{font-size:12px;color:var(--muted)}
+.cta-sec{background:var(--bg);padding:96px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(79,255,176,0.06),transparent 70%)}
+.cta-sec h2{font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;position:relative}
+.cta-sec p{color:var(--muted);font-size:16px;margin-bottom:36px;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+footer{background:#03040a;padding:60px 5% 28px;border-top:1px solid var(--border2)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo2{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;margin-bottom:12px}
+.footer-logo2 span{color:var(--accent)}
+.footer-desc{color:var(--muted);font-size:14px;line-height:1.7;max-width:260px}
+.footer-col h5{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;margin-bottom:16px;color:var(--text);text-transform:uppercase;letter-spacing:1px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s}
+.footer-col ul a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border2);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--muted);font-size:13px}
+.socials{display:flex;gap:10px}
+.soc{width:36px;height:36px;border-radius:9px;background:var(--card);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-decoration:none;font-weight:700;transition:background .2s,color .2s,border-color .2s}
+.soc:hover{background:var(--accent);color:#06080f;border-color:var(--accent)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){.hero{grid-template-columns:1fr;padding-top:110px}.hero-right{display:none}.footer-top{grid-template-columns:1fr 1fr}.process-steps::before{display:none}}
+@media(max-width:700px){.nav-links,.btn-nav{display:none}.hamburger{display:flex}.hero h1{font-size:38px}.footer-top{grid-template-columns:1fr}section{padding:70px 5%}.hero-stats{gap:20px}.pricing-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr 1fr}.ads-grid{grid-template-columns:1fr}.what-card.featured{grid-template-columns:1fr}}
+@media(max-width:480px){.process-steps{grid-template-columns:1fr}.hero h1{font-size:34px;letter-spacing:-1px}}
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
 <nav>
-  <div class="nav-logo">WC<span>.</span>DIGITAL HUB</div>
+  <a href="#home" class="nav-logo">WC<span class="dot">.</span>DIGITAL HUB</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#training">Training</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#ads">Ads</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get Started</a>
-  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+  <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-nav">Get a Quote</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#why" onclick="toggleMenu()">Why Us</a>
-  <a href="#training" onclick="toggleMenu()">Training</a>
-  <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#ads" onclick="toggleMenu()">Ads</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="https://wa.me/message/P4HCYEYEG6ZBL1" onclick="toggleMenu()">Get a Quote</a>
 </div>
 
-<!-- ─── HERO ─── -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="grid-overlay"></div>
-  <div class="hero-content reveal">
-    <div class="hero-tag">Nigeria's #1 Digital Agency</div>
-    <h1>Build, Scale &amp;<br><span class="highlight">Dominate Online</span></h1>
-    <p>WC Digital Hub combines Web Development & Digital Marketing (Meta Ads, Google Ads) Services and Training to drive real results.</p>
+  <div class="hero-noise"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-left reveal">
+    <div class="hero-eyebrow">Nigeria's Leading Web Agency</div>
+    <h1>We Build Websites<br><span class="line2">That Convert</span></h1>
+    <p class="hero-desc">Modern, responsive, and stunning websites designed to grow your brand, attract customers, and dominate online — built from scratch for your unique goals.</p>
     <div class="hero-btns">
-      <a href="#services" class="btn-primary">Explore Services</a>
-      <a href="#training" class="btn-outline">Start Training</a>
+      <a href="#pricing" class="btn-primary">View Pricing ↓</a>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-outline">Chat With Us</a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">500+</div>
-        <div class="stat-label">Clients Served</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">₦500K+</div>
-        <div class="stat-label">Ad Revenue Managed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">98%</div>
-        <div class="stat-label">Client Satisfaction</div>
-      </div>
+      <div class="stat"><div class="stat-n">200+</div><div class="stat-l">Sites Delivered</div></div>
+      <div class="stat"><div class="stat-n">98%</div><div class="stat-l">Happy Clients</div></div>
+      <div class="stat"><div class="stat-n">5★</div><div class="stat-l">Avg. Rating</div></div>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="orb">
-      <div class="orb-inner">WC</div>
-      <div class="orb-badge top">⚡ Meta Ads Active</div>
-      <div class="orb-badge bottom">📈 ROI +340%</div>
-      <div class="orb-badge mid">🔥 Forex Live</div>
+  <div class="hero-right reveal">
+    <div class="browser-mock">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">https://yourclientsite.com.ng</div>
+      </div>
+      <div class="browser-body">
+        <div class="site-preview">
+          <div class="preview-nav">
+            <div class="preview-nav-dot"></div><div class="preview-nav-dot"></div><div class="preview-nav-dot"></div>
+          </div>
+          <div class="preview-hero-block">
+            <div class="ph-title"></div><div class="ph-sub"></div><div class="ph-btn"></div>
+          </div>
+          <div class="preview-cards">
+            <div class="preview-card"><div class="pc-img"></div><div class="pc-line"></div><div class="pc-line short"></div></div>
+            <div class="preview-card"><div class="pc-img"></div><div class="pc-line"></div><div class="pc-line short"></div></div>
+            <div class="preview-card"><div class="pc-img"></div><div class="pc-line"></div><div class="pc-line short"></div></div>
+          </div>
+          <div class="preview-footer"></div>
+        </div>
+      </div>
     </div>
+    <div class="hero-badge b1">✦ Fully Responsive</div>
+    <div class="hero-badge b2">⚡ Fast & SEO Ready</div>
+    <div class="hero-badge b3">🔒 Secure & Modern</div>
   </div>
 </section>
 
-<!-- ─── SERVICES ─── -->
-<section class="services" id="services">
-  <span class="section-tag reveal">WHAT WE DO</span>
-  <h2 class="section-title reveal">Tailored Digital<br>Marketing Solutions</h2>
-  <p class="section-sub reveal">Our services are designed to meet your specific needs and help you achieve your business goals.</p>
-  <div class="services-grid">
-    <div class="service-card webdev-card reveal">
-      <div class="webdev-top">
-        <div class="service-icon">🌐</div>
-        <span class="new-badge">⭐ #1 Service</span>
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Web Design</span><span class="marquee-item">E-Commerce</span><span class="marquee-item">Portfolio Sites</span><span class="marquee-item">Facebook Ads</span><span class="marquee-item">Church Websites</span><span class="marquee-item">Business Sites</span><span class="marquee-item">Landing Pages</span><span class="marquee-item">Instagram Ads</span><span class="marquee-item">School Websites</span><span class="marquee-item">Digital Marketing</span>
+    <span class="marquee-item">Web Design</span><span class="marquee-item">E-Commerce</span><span class="marquee-item">Portfolio Sites</span><span class="marquee-item">Facebook Ads</span><span class="marquee-item">Church Websites</span><span class="marquee-item">Business Sites</span><span class="marquee-item">Landing Pages</span><span class="marquee-item">Instagram Ads</span><span class="marquee-item">School Websites</span><span class="marquee-item">Digital Marketing</span>
+  </div>
+</div>
+
+<section class="what" id="services">
+  <span class="tag reveal">What We Do</span>
+  <h2 class="sec-title reveal">Websites For Every<br>Need & Budget</h2>
+  <p class="sec-sub reveal">From simple portfolios to full e-commerce platforms — we build it all, beautifully and affordably.</p>
+  <div class="what-grid">
+    <div class="what-card featured reveal">
+      <div>
+        <div class="featured-badge">⭐ Core Service</div>
+        <div class="card-icon">🌐</div>
+        <h3>Web Design & Development</h3>
+        <p>We craft modern, lightning-fast, fully responsive websites that make your brand unforgettable. Every pixel is intentional. Every line of code is optimized. Whether you need a sleek portfolio, a powerful e-commerce store, or a full business website — we deliver results that grow your business.</p>
+        <div class="card-tags" style="margin-top:16px">
+          <span class="ctag">Mobile-First</span>
+          <span class="ctag">SEO Optimized</span>
+          <span class="ctag">Fast Loading</span>
+          <span class="ctag">Modern Design</span>
+          <span class="ctag">Custom Built</span>
+        </div>
+        <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="service-link">Start Your Project →</a>
       </div>
-      <h3>Web Development</h3>
-      <p>We design stunning, fast, and fully responsive websites that represent your brand professionally and convert visitors into customers. Every site is custom-built for your unique goals.</p>
-      <div class="usecase-grid">
-        <span class="usecase-tag">👤 Personal Portfolio</span>
-        <span class="usecase-tag">🏫 School Website</span>
-        <span class="usecase-tag">🛒 E-Commerce</span>
-        <span class="usecase-tag">⛪ Church</span>
-        <span class="usecase-tag">🏢 Business</span>
-        <span class="usecase-tag">🔄 Buy &amp; Sell</span>
-        <span class="usecase-tag">✨ &amp; Lots More</span>
+      <div class="featured-right">
+        <p style="font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Suitable For</p>
+        <div class="use-case-list">
+          <div class="use-tag"><span>👤</span> Personal Portfolio</div>
+          <div class="use-tag"><span>🏫</span> School Website</div>
+          <div class="use-tag"><span>🛒</span> E-Commerce Store</div>
+          <div class="use-tag"><span>⛪</span> Church Website</div>
+          <div class="use-tag"><span>🏢</span> Business Website</div>
+          <div class="use-tag"><span>🔄</span> Buy &amp; Sell Platform</div>
+          <div class="use-tag"><span>🍽️</span> Restaurant &amp; Food</div>
+          <div class="use-tag"><span>🏥</span> Health &amp; Medical</div>
+          <div class="use-tag"><span>📸</span> Photography</div>
+          <div class="use-tag"><span>✨</span> &amp; Many More…</div>
+        </div>
       </div>
-      <a href="#contact" class="service-link">Build My Website →</a>
     </div>
-    <div class="service-card reveal">
-      <div class="service-icon">📣</div>
-      <h3>Meta Ads Management</h3>
-      <p>Leverage the power of Facebook & Instagram Ads to reach your exact target audience. Compelling campaigns that maximize engagement, leads, and conversions.</p>
-      <a href="#contact" class="service-link">Get Started →</a>
+    <div class="what-card reveal">
+      <div class="card-num">02</div>
+      <div class="card-icon">📣</div>
+      <h3>Facebook &amp; Instagram Ads</h3>
+      <p>Targeted Meta Ads campaigns that put your business in front of the right audience. We handle the creative, targeting, and optimization — you get the results and customers.</p>
+      <div class="card-tags">
+        <span class="ctag">Facebook Ads</span>
+        <span class="ctag">Instagram Ads</span>
+        <span class="ctag">Retargeting</span>
+        <span class="ctag">Lead Generation</span>
+      </div>
+      <a href="#ads" class="service-link">Learn More →</a>
     </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🔍</div>
-      <h3>Google Ads Expertise</h3>
-      <p>Data-driven Google Ads campaigns that boost traffic and generate quality leads. We maximize your ROI through continuous optimization and smart bidding.</p>
-      <a href="#contact" class="service-link">Learn More →</a>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">📊</div>
-      <h3>Forex Trading Guidance</h3>
-      <p>Expert forex mentorship and strategy sessions. Learn to analyze the markets, manage risk, and trade with confidence in the global financial market.</p>
-      <a href="#contact" class="service-link">Explore →</a>
-    </div>
-   
-    <div class="service-card reveal">
-      <div class="service-icon">🎓</div>
+    <div class="what-card reveal">
+      <div class="card-num">03</div>
+      <div class="card-icon">📊</div>
       <h3>Digital Marketing Training</h3>
-      <p>Practical, income-generating skills taught by industry experts. From beginner to advanced — learn SEO, content strategy, social media marketing and more.</p>
-      <a href="#training" class="service-link">Enroll Now →</a>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">📈</div>
-      <h3>Performance Tracking</h3>
-      <p>Real-time analytics and detailed campaign reports. We continuously refine your strategy based on data-driven insights to maximize every naira spent.</p>
-      <a href="#contact" class="service-link">See Demo →</a>
+      <p>Learn practical, income-generating digital skills from experts. Master social media marketing, content strategy, and paid ads — from complete beginner to professional.</p>
+      <div class="card-tags">
+        <span class="ctag">Beginners Welcome</span>
+        <span class="ctag">Hands-On</span>
+        <span class="ctag">Earn While You Learn</span>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="service-link">Enroll Now →</a>
     </div>
   </div>
 </section>
 
-<!-- ─── WHY US ─── -->
-<section class="why" id="why">
-  <div class="why-grid">
-    <div class="why-visual reveal">
-      <div class="why-metric">
-        <div class="why-metric-num">500+</div>
-        <p>Clients Served</p>
-      </div>
-      <div class="why-metric">
-        <div class="why-metric-num gold">340%</div>
-        <p>Avg. ROI Increase</p>
-      </div>
-      <div class="why-metric">
-        <div class="why-metric-num rose">₦200K+</div>
-        <p>Ad Spend Managed</p>
-      </div>
-      <div class="why-metric">
-        <div class="why-metric-num green">98%</div>
-        <p>Client Retention</p>
-      </div>
+<section class="process" id="process">
+  <span class="tag reveal">How It Works</span>
+  <h2 class="sec-title reveal">From Idea to Live<br>Website in Days</h2>
+  <p class="sec-sub reveal">A simple, transparent process so you always know what's happening at every stage.</p>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h4>Discovery Chat</h4>
+      <p>We chat on WhatsApp to understand your goals, brand, and what you need from your website.</p>
     </div>
-    <div>
-      <span class="section-tag reveal">Why Choose Us</span>
-      <h2 class="section-title reveal">Your Trusted<br>Digital Partner</h2>
-      <p class="section-sub reveal" style="margin-bottom:36px">We combine strategy, innovation, and real-world experience to help brands and individuals achieve financial and digital growth.</p>
-      <div class="why-points">
-        <div class="why-point reveal">
-          <div class="why-point-icon">🎯</div>
-          <div>
-            <h4>Proven Track Record</h4>
-            <p>Hundreds of businesses have grown significantly through our tailored marketing strategies and campaigns.</p>
-          </div>
-        </div>
-        <div class="why-point reveal">
-          <div class="why-point-icon">👥</div>
-          <div>
-            <h4>Expert Team</h4>
-            <p>Seasoned professionals with deep experience in digital marketing, forex, and financial services.</p>
-          </div>
-        </div>
-        <div class="why-point reveal">
-          <div class="why-point-icon">🤝</div>
-          <div>
-            <h4>Client-Centric Approach</h4>
-            <p>We work closely with you to develop customized solutions aligned with your objectives and vision.</p>
-          </div>
-        </div>
-      </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h4>Design &amp; Build</h4>
+      <p>We design and develop your site with modern aesthetics, mobile responsiveness, and fast performance.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h4>Review &amp; Revise</h4>
+      <p>You review the site, request changes, and we refine until you're 100% happy with the result.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h4>Launch &amp; Support</h4>
+      <p>We publish your site live on your domain and provide ongoing support to keep things running.</p>
     </div>
   </div>
 </section>
 
-<!-- ─── TRAINING ─── -->
-<section class="training" id="training">
-  <span class="section-tag reveal">SKILL DEVELOPMENT</span>
-  <h2 class="section-title reveal">Master Digital<br>Marketing</h2>
-  <p class="section-sub reveal">Practical, income-generating skills taught by industry experts. Enroll today and unlock your potential in the digital economy.</p>
-  <div class="training-grid">
-    <div class="training-card reveal">
-      <div class="training-emoji">📱</div>
-      
-   
-    <div class="training-card reveal">
-      <div class="training-emoji">✍️</div>
-      <h3>Content Marketing</h3>
-      <p>Develop a powerful content strategy, harness storytelling, and measure campaign effectiveness to drive engagement and lead generation.</p>
-      <span class="badge">Intermediate</span>
+<section class="pricing" id="pricing">
+  <span class="tag reveal">Pricing</span>
+  <h2 class="sec-title reveal">Simple, Transparent<br>Pricing</h2>
+  <p class="sec-sub reveal">No hidden fees. Pick the plan that fits your needs and budget. All plans include mobile-responsive design.</p>
+  <div class="pricing-grid reveal">
+    <div class="plan-card">
+      <div class="plan-tier">Starter</div>
+      <div class="plan-name">Basic Website</div>
+      <div class="plan-price"><span>₦</span>30,000</div>
+      <div class="plan-note">One-time payment · Starting from</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><strong>1-Page Website</strong> (Landing Page or Portfolio)</li>
+        <li>Mobile Responsive Design</li>
+        <li>Contact Form Integration</li>
+        <li>Basic SEO Setup</li>
+        <li>Social Media Links</li>
+        <li>Fast Loading Speed</li>
+        <li>WhatsApp Chat Button</li>
+      </ul>
+      <div class="plan-domains">
+        <p>Domain Options</p>
+        <div class="domain-tags">
+          <span class="dtag">.store</span><span class="dtag">.site</span><span class="dtag">.online</span><span class="dtag">.com.ng</span>
+        </div>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-plan outline">Get Started</a>
     </div>
-      
-    <div class="training-card reveal">
-      <div class="training-emoji">💰</div>
-      <h3>Forex Basics</h3>
-      <p>Navigate the global financial markets with confidence. Learn technical analysis, risk management, and smart trading habits.</p>
-      <span class="badge">Beginner Friendly</span>
+    <div class="plan-card popular">
+      <div class="popular-tag">Most Popular</div>
+      <div class="plan-tier">Intermediate</div>
+      <div class="plan-name">Business Website</div>
+      <div class="plan-price"><span>₦</span>50,000</div>
+      <div class="plan-note">One-time payment · Starting from</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><strong>Multi-Page Website</strong> (Up to 5 pages)</li>
+        <li>Mobile Responsive Design</li>
+        <li>Blog or Portfolio Section</li>
+        <li>Contact &amp; Enquiry Forms</li>
+        <li>Full SEO Optimization</li>
+        <li>Google Maps Integration</li>
+        <li>WhatsApp Chat Button</li>
+        <li>Social Media Integration</li>
+      </ul>
+      <div class="plan-domains">
+        <p>Domain Options</p>
+        <div class="domain-tags">
+          <span class="dtag">.com</span><span class="dtag">.net</span><span class="dtag">.org</span>
+        </div>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-plan solid">Get Started</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-tier">Professional</div>
+      <div class="plan-name">Pro / E-Commerce</div>
+      <div class="plan-price"><span>₦</span>100,000</div>
+      <div class="plan-note">One-time payment · Starting from</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><strong>Full E-Commerce or Complex Site</strong></li>
+        <li>Online Store + Payment Gateway</li>
+        <li>Unlimited Pages</li>
+        <li>Custom Design &amp; Animations</li>
+        <li>Admin Dashboard</li>
+        <li>Advanced SEO &amp; Analytics</li>
+        <li>Priority Support</li>
+        <li>Monthly Maintenance Option</li>
+      </ul>
+      <div class="plan-domains">
+        <p>Domain Options</p>
+        <div class="domain-tags">
+          <span class="dtag">.com</span><span class="dtag">.ng</span><span class="dtag">.biz</span><span class="dtag">.co</span>
+        </div>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-plan outline">Get Started</a>
     </div>
   </div>
 </section>
 
-<!-- ─── TESTIMONIALS ─── -->
+<section class="ads" id="ads">
+  <span class="tag reveal">Digital Advertising</span>
+  <h2 class="sec-title reveal">Facebook &amp; Instagram<br>Ads That Work</h2>
+  <p class="sec-sub reveal">We run high-converting Meta Ads campaigns that bring real customers to your business — not just clicks.</p>
+  <div class="ads-grid">
+    <div class="ad-card reveal">
+      <div class="ad-platform">
+        <div class="ad-logo fb">📘</div>
+        <div><h3>Facebook Ads</h3><p>Reach millions across Nigeria &amp; beyond</p></div>
+      </div>
+      <p>We create and manage targeted Facebook ad campaigns designed to generate leads, drive traffic, and grow your sales — with full performance reporting included.</p>
+      <div class="ad-features">
+        <div class="ad-feat">Precise audience targeting by age, location &amp; interest</div>
+        <div class="ad-feat">Compelling ad creatives and copywriting</div>
+        <div class="ad-feat">Campaign optimization for maximum ROI</div>
+        <div class="ad-feat">Weekly performance reports</div>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="service-link" style="margin-top:20px;display:inline-flex">Run My Facebook Ads →</a>
+    </div>
+    <div class="ad-card reveal">
+      <div class="ad-platform">
+        <div class="ad-logo ig">📸</div>
+        <div><h3>Instagram Ads</h3><p>Visual ads that stop the scroll</p></div>
+      </div>
+      <p>Instagram is where your customers live. We design eye-catching sponsored posts, stories, and reels ads that convert scrollers into buyers for your brand.</p>
+      <div class="ad-features">
+        <div class="ad-feat">Stories, Reels &amp; Feed ad formats</div>
+        <div class="ad-feat">High-converting visual creatives</div>
+        <div class="ad-feat">Retargeting to warm audiences</div>
+        <div class="ad-feat">Conversion tracking &amp; analytics</div>
+      </div>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="service-link" style="margin-top:20px;display:inline-flex">Run My Instagram Ads →</a>
+    </div>
+  </div>
+</section>
+
 <section class="testimonials" id="testimonials">
-  <span class="section-tag reveal">Client Stories</span>
-  <h2 class="section-title reveal">What Our Clients Say</h2>
-  <p class="section-sub reveal">Real results from real people who trusted WilsonChannel Digital Hub.</p>
+  <span class="tag reveal">Client Reviews</span>
+  <h2 class="sec-title reveal">What Our Clients Say</h2>
+  <p class="sec-sub reveal">Real results from real people across Nigeria who trusted WC Digital Hub.</p>
   <div class="testi-grid">
     <div class="testi-card reveal">
       <div class="stars">★★★★★</div>
-      <div class="testi-quote">"</div>
-      <p class="testi-text">WC Digital Hub transformed our online presence. Their expertise in Meta Ads significantly increased our engagement and sales!</p>
+      <p class="testi-text">"WC Digital Hub built my business website in just 3 days and it looked absolutely stunning. I started getting customer enquiries within a week of launching. Highly recommend!"</p>
       <div class="testi-author">
-        <div class="testi-avatar">AT</div>
-        <div>
-          <div class="testi-name">Alex T.</div>
-          <div class="testi-role">E-commerce Entrepreneur</div>
-        </div>
+        <div class="t-avatar" style="background:linear-gradient(135deg,#4fffb0,#00cfff)">AO</div>
+        <div><div class="t-name">Adaeze O.</div><div class="t-role">Fashion Boutique Owner, Lagos</div></div>
       </div>
     </div>
     <div class="testi-card reveal">
       <div class="stars">★★★★★</div>
-      <div class="testi-quote">"</div>
-      <p class="testi-text">The training programs offered by WilsonChannel were invaluable. I gained practical skills that have helped me excel in my career as a digital marketer.</p>
+      <p class="testi-text">"They ran our Instagram ads and within 2 weeks we had over 300 new followers and 40 customer orders. The ROI was incredible. These guys know what they're doing!"</p>
       <div class="testi-author">
-        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--rose),var(--gold))">SL</div>
-        <div>
-          <div class="testi-name">Sarah L.</div>
-          <div class="testi-role">Digital Marketing Specialist</div>
-        </div>
+        <div class="t-avatar" style="background:linear-gradient(135deg,#f09433,#bc1888)">CJ</div>
+        <div><div class="t-name">Chukwuemeka J.</div><div class="t-role">Food Business Owner, Abuja</div></div>
       </div>
     </div>
     <div class="testi-card reveal">
       <div class="stars">★★★★★</div>
-      <div class="testi-quote">"</div>
-      <p class="testi-text">Thanks to their guidance in Forex trading, I now feel confident navigating the financial market and making informed, profitable decisions.</p>
+      <p class="testi-text">"My school needed a professional website urgently. WC Digital Hub delivered a beautiful, functional site on time and within budget. Parents and staff absolutely love it!"</p>
       <div class="testi-author">
-        <div class="testi-avatar" style="background:linear-gradient(135deg,#00e676,var(--accent))">MP</div>
-        <div>
-          <div class="testi-name">Mark P.</div>
-          <div class="testi-role">Forex Trader</div>
-        </div>
+        <div class="t-avatar" style="background:linear-gradient(135deg,#ffd166,#e67e00)">NB</div>
+        <div><div class="t-name">Ngozi B.</div><div class="t-role">School Principal, Port Harcourt</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I enrolled in their digital marketing training and within a month I was running my own ads for clients and earning. The training was practical, simple, and life-changing!"</p>
+      <div class="testi-author">
+        <div class="t-avatar" style="background:linear-gradient(135deg,#ff6b6b,#ff9a3c)">TM</div>
+        <div><div class="t-name">Tunde M.</div><div class="t-role">Freelance Digital Marketer</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Got a clean e-commerce store built for my skincare brand. The website is fast, looks professional, and customers trust it immediately. Sales have gone up 60% since launch!"</p>
+      <div class="testi-author">
+        <div class="t-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">FA</div>
+        <div><div class="t-name">Fatima A.</div><div class="t-role">Skincare Brand Owner, Kano</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Our church website was built professionally and affordably. Members can now access schedules, sermons, and donations online. God bless WC Digital Hub!"</p>
+      <div class="testi-author">
+        <div class="t-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">PO</div>
+        <div><div class="t-name">Pastor Ola</div><div class="t-role">Church of Grace, Ibadan</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
-<section class="cta-section" id="contact">
-  <h2 class="reveal">Ready to <span style="background:linear-gradient(90deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Grow Your Business?</span></h2>
-  <p class="reveal">Let's build your digital success story together. Book a free consultation today.</p>
+<section class="cta-sec" id="contact">
+  <h2 class="reveal">Ready to Build Your<br><span style="background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Dream Website?</span></h2>
+  <p class="reveal">Let's bring your vision to life. Chat with us on WhatsApp and get started today.</p>
   <div class="cta-btns reveal">
-    <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-primary">Book Free Consultation</a>
-    <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-outline">WhatsApp Us</a>
+    <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="btn-primary">💬 WhatsApp Us Now</a>
+    <a href="#pricing" class="btn-outline">View Pricing</a>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">WC<span>.</span>Digital Hub</div>
-      <p>A results-driven digital marketing agency dedicated to helping businesses grow, scale, and dominate online.</p>
+    <div>
+      <div class="footer-logo2">WC<span>.</span>Digital Hub</div>
+      <p class="footer-desc">Nigeria's modern web design &amp; digital marketing agency. We build websites that grow businesses and run ads that convert.</p>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h5>Services</h5>
       <ul>
         <li><a href="#services">Web Development</a></li>
-        <li><a href="#services">Meta Ads</a></li>
-        <li><a href="#services">Forex Guidance</a></li>
-        <li><a href="#services">Crypto Services</a></li>
+        <li><a href="#ads">Facebook Ads</a></li>
+        <li><a href="#ads">Instagram Ads</a></li>
+        <li><a href="#services">DM Training</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Training</h4>
+      <h5>Pricing</h5>
       <ul>
-        <li><a href="#training">Digital Marketing</a></li>
-        <li><a href="#training">Web Development</a></li>
-        <li><a href="#training">Content Marketing</a></li>
-        <li><a href="#training">Forex Basics</a></li>
+        <li><a href="#pricing">Starter — ₦30,000</a></li>
+        <li><a href="#pricing">Business — ₦50,000</a></li>
+        <li><a href="#pricing">Pro — ₦100,000</a></li>
+        <li><a href="https://wa.me/message/P4HCYEYEG6ZBL1">Custom Quote</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <h5>Company</h5>
       <ul>
-        <li><a href="#why">About Us</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#testimonials">Client Reviews</a></li>
+        <li><a href="https://wa.me/message/P4HCYEYEG6ZBL1">Contact Us</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 WILSONCHANNEL. All Rights Reserved.</p>
-    <div class="social-links">
-      <a href="https://youtube.com/@wilsonchanneltv?si=xHbO-v2iRdMzfT5S" class="social-btn" title="Youtube">f</a>
-      <a href="https://www.instagram.com/wilsonchanneltv?igsh=MTZ3bXJjcTNkdHV2aw==" class="social-btn" title="Instagram">ig</a>
-      <a href="https://x.com/wilsonchanneltv" class="social-btn" title="Twitter/X">𝕏</a>
-      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="social-btn" title="WhatsApp">W</a>
+    <div class="socials">
+      <a href="https://youtube.com/@wilsonchanneltv?si=xHbO-v2iRdMzfT5S" class="soc" title="YouTube">YT</a>
+      <a href="https://www.instagram.com/wilsonchanneltv?igsh=MTZ3bXJjcTNkdHV2aw==" class="soc" title="Instagram">IG</a>
+      <a href="https://x.com/wilsonchanneltv" class="soc" title="Twitter/X">𝕏</a>
+      <a href="https://wa.me/message/P4HCYEYEG6ZBL1" class="soc" title="WhatsApp">W</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // ─ HAMBURGER MENU ─
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-  }
-
-  // ─ SCROLL REVEAL ─
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ─ STAGGERED CARDS ─
-  document.querySelectorAll('.services-grid .service-card, .testi-grid .testi-card, .training-grid .training-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 80}ms`;
-  });
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${(i%4)*80}ms`;obs.observe(el)});
 </script>
 </body>
 </html>
